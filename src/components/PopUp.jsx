@@ -1,15 +1,60 @@
 import React from "react";
 
-function PopUp({ setTitle }) {
+function PopUp({
+    title,
+    setTitle,
+    text,
+    setText,
+    idPriority,
+    setIdPriority,
+    dateTime,
+    setDateTime,
+    todos,
+    setTodos,
+}) {
     function getTitleValue(e) {
         console.log(e.target.value);
         setTitle(e.target.value);
     }
     function getTextValue(e) {
         console.log(e.target.value);
+        setText(e.target.value);
+    }
+    function getPriorityId(e) {
+        console.log(e.target.value);
+        setIdPriority(e.target.value);
     }
     function AddTask(e) {
         e.preventDefault();
+        // set date & time
+        let today = new Date();
+        let date =
+            today.getDate() +
+            "-" +
+            (today.getMonth() + 1) +
+            "-" +
+            today.getFullYear();
+        let time =
+            today.getHours() +
+            ":" +
+            today.getMinutes() +
+            ":" +
+            today.getSeconds();
+        let dateTime = `${time} ${date}`;
+        setDateTime(dateTime);
+
+        setTodos([
+            ...todos,
+            {
+                title: title,
+                text: text,
+                idPriority: idPriority,
+                dateTime: dateTime,
+                completed: false,
+                id: Math.round(Math.random() * 1000),
+            },
+        ]);
+        console.log(todos);
     }
     return (
         <div
@@ -75,7 +120,7 @@ function PopUp({ setTitle }) {
                                 </div>
                             </div>
                             <fieldset className="form-group">
-                                <div className="row">
+                                <div className="row" onChange={getPriorityId}>
                                     <legend className="col-form-label col-sm-2 pt-0">
                                         Priority
                                     </legend>

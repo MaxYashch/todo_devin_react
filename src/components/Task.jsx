@@ -32,17 +32,13 @@ function Task() {
                     className="dropdown-menu p-2 flex-column"
                     aria-labelledby="dropdownMenuItem1"
                     x-placement="left-start"
-                    style="
-                    position: absolute;
-                    will-change: transform;
-                    top: 0px;
-                    left: 0px;
-                    transform: translate3d(
-                        -162px,
-                        0px,
-                        0px
-                    );
-                "
+                    style={{
+                        position: "absolute",
+                        willChange: "transform",
+                        top: "0px",
+                        left: "0px",
+                        transform: "translate3d"("-162px", "0px", "0px"),
+                    }}
                 >
                     <ButtonsStatus />
                 </div>
