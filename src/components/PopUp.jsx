@@ -1,4 +1,4 @@
-import React from "react";
+import { React } from "react";
 
 function PopUp({
     title,
@@ -24,6 +24,7 @@ function PopUp({
         console.log(e.target.value);
         setIdPriority(e.target.value);
     }
+
     function AddTask(e) {
         e.preventDefault();
         // set date & time
@@ -54,7 +55,11 @@ function PopUp({
                 id: Math.round(Math.random() * 1000),
             },
         ]);
-        console.log(todos);
+        // console.log(todos);
+        // setTitle("");
+        // setText("");
+        // setDateTime("");
+        // setIdPriority("");
     }
     return (
         <div
@@ -92,6 +97,7 @@ function PopUp({
                                 </label>
                                 <div className="col-sm-10">
                                     <input
+                                        value={title}
                                         type="text"
                                         className="form-control"
                                         id={"inputTitle"}
@@ -110,6 +116,7 @@ function PopUp({
                                 </label>
                                 <div className="col-sm-10">
                                     <input
+                                        value={text}
                                         type="text"
                                         className="form-control"
                                         id="inputText"

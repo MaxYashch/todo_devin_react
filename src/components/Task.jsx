@@ -34,10 +34,10 @@ function Task() {
                     x-placement="left-start"
                     style={{
                         position: "absolute",
-                        willChange: "transform",
+                        // willChange: "transform",
                         top: "0px",
                         left: "0px",
-                        transform: "translate3d"("-162px", "0px", "0px"),
+                        // transform: translate("-162px", "0px", "0px"),
                     }}
                 >
                     <ButtonsStatus />

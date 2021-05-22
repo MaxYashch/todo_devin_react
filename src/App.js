@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import "./App.css";
-import Main from "./componentMain/Main";
+import Mainmenu from "./componentMain/Mainmenu";
 import PopUp from "./components/PopUp";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
     return (
         <div>
             <h1>Yo nigger {dateTime}</h1>;
-            <Main />
+            <Mainmenu todos={todos} />
             <PopUp
                 title={title}
                 setTitle={setTitle}
@@ -31,6 +31,8 @@ function App() {
 }
 
 export default App;
+
+// after entering clean the input
 
 // cd todo_devin_react/
 // npm start
