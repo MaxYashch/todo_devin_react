@@ -1,12 +1,12 @@
 import { React } from "react";
-import ButtonsStatus from "./ButtonsStatus";
+// import ButtonsStatus from "./ButtonsStatus";
 
-function Task({ title, text, idPriority, dateTime }) {
+function Task({ title, text, idPriority, dateTime, task, todos, setTodos }) {
+    const deleteTask = () => {
+        setTodos(todos.filter((el) => el.id !== task.id));
+    };
     return (
-        <li
-            className="list-group-item d-flex w-100 mb-2"
-            data-date="1910383671693"
-        >
+        <li className="list-group-item d-flex w-100 mb-2" data-date="">
             <div className="w-100 mr-2">
                 <div className="d-flex w-100 justify-content-between">
                     <h5 className="mb-1">{title}</h5>
@@ -40,7 +40,20 @@ function Task({ title, text, idPriority, dateTime }) {
                         // transform: translate("-162px", "0px", "0px"),
                     }}
                 >
-                    <ButtonsStatus />
+                    <div>
+                        <button className="btn btn-success w-100">
+                            Complete
+                        </button>
+                        <button className="btn btn-info w-100 my-2">
+                            Edit
+                        </button>
+                        <button
+                            className="btn btn-danger w-100"
+                            onClick={deleteTask}
+                        >
+                            Delete
+                        </button>
+                    </div>
                 </div>
             </div>
         </li>

@@ -13,7 +13,7 @@ function App() {
     return (
         <div>
             <h1>Yo nigger {dateTime}</h1>;
-            <Mainmenu todos={todos} />
+            <Mainmenu setTodos={setTodos} todos={todos} />
             <PopUp
                 title={title}
                 setTitle={setTitle}
