@@ -14,7 +14,7 @@ function TaskList({ todos }) {
                     text={task.text}
                     idPriority={task.idPriority}
                     dateTime={task.dateTime}
-                    id={task.id}
+                    key={task.id}
                 />
             ))}
         </ul>

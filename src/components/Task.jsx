@@ -1,7 +1,7 @@
 import { React } from "react";
 import ButtonsStatus from "./ButtonsStatus";
 
-function Task() {
+function Task({ title, text, idPriority, dateTime }) {
     return (
         <li
             className="list-group-item d-flex w-100 mb-2"
@@ -9,13 +9,13 @@ function Task() {
         >
             <div className="w-100 mr-2">
                 <div className="d-flex w-100 justify-content-between">
-                    <h5 className="mb-1">1</h5>
+                    <h5 className="mb-1">{title}</h5>
                     <div>
-                        <small className="mr-2">undefined</small>
-                        <small className="timeToDo">19:47:51 11-1-2021</small>
+                        <small className="mr-2">{idPriority}</small>
+                        <small className="timeToDo">{dateTime}</small>
                     </div>
                 </div>
-                <p className="mb-1 w-100"></p>
+                <p className="mb-1 w-100">{text}</p>
             </div>
             <div className="dropdown m-2 dropleft">
                 <button

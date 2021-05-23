@@ -37,11 +37,11 @@ function PopUp({
             today.getFullYear();
         let time =
             today.getHours() +
-            ":" +
+            " : " +
             today.getMinutes() +
-            ":" +
+            " : " +
             today.getSeconds();
-        let dateTime = `${time} ${date}`;
+        let dateTime = `${time}    ${date}`;
         setDateTime(dateTime);
 
         setTodos([
