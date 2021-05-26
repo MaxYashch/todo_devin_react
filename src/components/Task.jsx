@@ -5,6 +5,7 @@ function Task({ title, text, idPriority, dateTime, task, todos, setTodos }) {
     const deleteTask = () => {
         setTodos(todos.filter((el) => el.id !== task.id));
     };
+    const completeTask = () => {};
     return (
         <li className="list-group-item d-flex w-100 mb-2" data-date="">
             <div className="w-100 mr-2">

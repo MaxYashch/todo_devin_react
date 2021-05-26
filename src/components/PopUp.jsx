@@ -13,15 +13,15 @@ function PopUp({
     setTodos,
 }) {
     function getTitleValue(e) {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setTitle(e.target.value);
     }
     function getTextValue(e) {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setText(e.target.value);
     }
     function getPriorityId(e) {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setIdPriority(e.target.value);
     }
 
@@ -55,11 +55,9 @@ function PopUp({
                 id: Math.round(Math.random() * 1000),
             },
         ]);
-        // console.log(todos);
-        // setTitle("");
-        // setText("");
-        // setDateTime("");
-        // setIdPriority("");
+        setTitle("");
+        setText("");
+        setIdPriority("");
     }
     return (
         <div
