@@ -1,14 +1,35 @@
 import { React } from "react";
 // import ButtonsStatus from "./ButtonsStatus";
 
-function Task({ title, text, idPriority, dateTime, task, todos, setTodos }) {
+function Task({
+    title,
+    text,
+    idPriority,
+    dateTime,
+    dateTimeSort,
+    task,
+    todos,
+    setTodos,
+}) {
+    const completeTask = () => {
+        setTodos(
+            todos.map((item) => {
+                if (item.id === task.id) {
+                    return {
+                        ...item,
+                        completed: !item.completed,
+                    };
+                }
+                return item;
+            })
+        );
+    };
     const deleteTask = () => {
         setTodos(todos.filter((el) => el.id !== task.id));
     };
-    const completeTask = () => {};
     return (
         <li className="list-group-item d-flex w-100 mb-2" data-date="">
-            <div className="w-100 mr-2">
+            <div className={`w-100 mr-2 ${task.completed ? "completed" : ""}`}>
                 <div className="d-flex w-100 justify-content-between">
                     <h5 className="mb-1">{title}</h5>
                     <div>
@@ -42,12 +63,15 @@ function Task({ title, text, idPriority, dateTime, task, todos, setTodos }) {
                     }}
                 >
                     <div>
-                        <button className="btn btn-success w-100">
+                        <button
+                            className="btn btn-success w-100"
+                            onClick={completeTask}
+                        >
                             Complete
                         </button>
-                        <button className="btn btn-info w-100 my-2">
+                        {/* <button className="btn btn-info w-100 my-2">
                             Edit
-                        </button>
+                        </button> */}
                         <button
                             className="btn btn-danger w-100"
                             onClick={deleteTask}

@@ -9,6 +9,8 @@ function PopUp({
     setIdPriority,
     dateTime,
     setDateTime,
+    dateTimeSort,
+    setDateTimeSort,
     todos,
     setTodos,
 }) {
@@ -29,6 +31,7 @@ function PopUp({
         e.preventDefault();
         // set date & time
         let today = new Date();
+
         let date =
             today.getDate() +
             "-" +
@@ -43,6 +46,9 @@ function PopUp({
             today.getSeconds();
         let dateTime = `${time}    ${date}`;
         setDateTime(dateTime);
+        let dateTimeSort = today.getTime();
+        console.log(dateTimeSort);
+        setDateTimeSort(dateTimeSort);
 
         setTodos([
             ...todos,
@@ -51,6 +57,7 @@ function PopUp({
                 text: text,
                 idPriority: idPriority,
                 dateTime: dateTime,
+                dateTimeSort: dateTimeSort,
                 completed: false,
                 id: Math.round(Math.random() * 1000),
             },
