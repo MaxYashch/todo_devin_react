@@ -1,31 +1,63 @@
 import { React, Component } from "react";
 
 class ButtonsSort extends Component {
-    constructor(todos) {
-        super(todos);
-        this.sortTaskReverse = this.sortTaskReverse.bind(this);
+    constructor(props) {
+        super(props);
+        this.sortByDate = this.sortByDate.bind(this);
+        this.toggleSortDate = this.toggleSortDate.bind(this);
         this.state = {
-            sortTodos: [],
+            postList: props.todos,
             isOldestFirst: true,
         };
     }
-    sortTaskReverse(e) {
-        // console.log(this.state.sotrTodos);
+    sortByDate(e) {
+        // console.log(this.state.postList);
+        // e.preventDefault();
         const { postList } = this.state;
-        let newPostList = postList.reverse();
+        console.log(postList);
+        let newPostList = JSON.parse(JSON.stringify(postList));
+        newPostList = newPostList.reverse();
         console.log(newPostList);
-        this.setState({
+
+        // if (this.state.isOldestFirst) {
+        //     newPostList.sort((a, b) => a.dateTimeSort < b.dateTimeSort);
+        // } else {
+        //     newPostList.sort((a, b) => a.dateTimeSort > b.dateTimeSort);
+        // }
+        // console.log(newPostList);
+
+        // for (let key of newPostList) {
+        //     newPostList.sort((a, b) => key.a.dateTimeSort > key.b.dateTimeSort);
+        //     // console.log(key.dateTimeSort);
+        // }
+        // console.log(newPostList);
+
+        // this.props.setTodos({
+        return this.setState({
             postList: newPostList.sort(
-                (a, b) => a.dateTimeSort - b.dateTimeSort
+                (a, b) => b.dateTimeSort - a.dateTimeSort
             ),
         });
+
+        //     console.log(this.state.postList);
     }
+
+    toggleSortDate(e) {}
+
+    componentDidMount() {
+        // const postList = TaskList;
+        // this.setState({
+        //     isOldestFirst: true,
+        //     postList: postList,
+        // });
+    }
+
     render() {
         return (
             <div className="d-flex">
                 <button type="button" className="btn btn-primary mx-2">
                     <i
-                        onClick={this.sortTaskReverse}
+                        onClick={this.sortByDate}
                         className="fas fa-sort-numeric-up-alt"
                         aria-hidden={"true"}
                     ></i>
