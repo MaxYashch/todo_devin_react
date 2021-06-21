@@ -4,53 +4,56 @@ class ButtonsSort extends Component {
     constructor(props) {
         super(props);
         this.sortByDate = this.sortByDate.bind(this);
-        this.toggleSortDate = this.toggleSortDate.bind(this);
+        // this.toggleSortDate = this.toggleSortDate.bind(this);
+        // this.toggleSortDate2 = this.toggleSortDate2.bind(this);
         this.state = {
             postList: props.todos,
             isOldestFirst: true,
         };
     }
     sortByDate(e) {
-        // console.log(this.state.postList);
-        // e.preventDefault();
+        e.preventDefault();
+        console.log("tttttttttttt");
         const { postList } = this.state;
         console.log(postList);
         let newPostList = JSON.parse(JSON.stringify(postList));
         newPostList = newPostList.reverse();
         console.log(newPostList);
 
-        // if (this.state.isOldestFirst) {
-        //     newPostList.sort((a, b) => a.dateTimeSort < b.dateTimeSort);
-        // } else {
-        //     newPostList.sort((a, b) => a.dateTimeSort > b.dateTimeSort);
-        // }
-        // console.log(newPostList);
-
-        // for (let key of newPostList) {
-        //     newPostList.sort((a, b) => key.a.dateTimeSort > key.b.dateTimeSort);
-        //     // console.log(key.dateTimeSort);
-        // }
-        // console.log(newPostList);
-
-        // this.props.setTodos({
         return this.setState({
             postList: newPostList.sort(
                 (a, b) => b.dateTimeSort - a.dateTimeSort
             ),
         });
-
-        //     console.log(this.state.postList);
     }
 
-    toggleSortDate(e) {}
+    // toggleSortDate() {
+    //     const { postList } = this.state;
+    //     console.log(postList);
+    //     let newPostList = JSON.parse(JSON.stringify(postList));
 
-    componentDidMount() {
-        // const postList = TaskList;
-        // this.setState({
-        //     isOldestFirst: true,
-        //     postList: postList,
-        // });
-    }
+    //     if (this.state.isOldestFirst) {
+    //         newPostList.sort((a, b) => a.dateTimeSort - b.dateTimeSort);
+    //     } else {
+    //         newPostList.sort((a, b) => b.dateTimeSort - a.dateTimeSort);
+    //     }
+
+    //     return this.setState({
+    //         postList: newPostList.sort(
+    //             (a, b) => b.dateTimeSort - a.dateTimeSort
+    //         ),
+    //         isOldestFirst: !this.state.isOldestFirst,
+    //     });
+    // }
+
+    // toggleSortDate2() {
+    //     this.toggleSortDate();
+    //     this.setState({
+    //         isOldestFirst: !this.state.isOldestFirst,
+    //     });
+    // }
+
+    // componentDidMount() {}
 
     render() {
         return (
