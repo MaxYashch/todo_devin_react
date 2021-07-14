@@ -1,30 +1,13 @@
 import React from "react";
 import Task from "./Task";
 
-function TaskList({ todos, setTodos }) {
-    // const [todosToSort, setTodosToSort] = useState([]);
-    
-    // const sortByDate = (e) => {
-    //     e.preventDefault();
-    //     // console.log("tttttttttttt");
-    //     // const { todosToSort } = todos;
-    //     // console.log(todosToSort);
-    //     // let newPostList = JSON.parse(JSON.stringify(postList));
-    //     // newPostList = newPostList.reverse();
-    //     // console.log(newPostList);
-
-    //     setState({
-    //         todos.sort(
-    //             (a, b) => b.dateTimeSort - a.dateTimeSort
-    //         ),
-    //     });
-    // }
-
+function TaskList({ todos, setTodos, dateTimeSort, props }) {
     return (
         <ul
             className="list-group flex-wrap justify-content-between"
             id={"currentTasks"}
         >
+            {/* <h1 onCLick={sortByDate}>SORT</h1> */}
             {/* <div className="d-flex">
                 <button type="button" className="btn btn-primary mx-2">
                     <i
@@ -43,8 +26,8 @@ function TaskList({ todos, setTodos }) {
             {/* {todos.sort((a, b) => (a.dateTimeSort - b.dateTimeSort)).map((task) => ( */}
             {todos.map((task) => (
                 <Task
-                    setTodos={setTodos}
                     todos={todos}
+                    setTodos={setTodos}
                     title={task.title}
                     text={task.text}
                     idPriority={task.idPriority}

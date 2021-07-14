@@ -11,9 +11,23 @@ function App() {
     const [idPriority, setIdPriority] = useState("");
     const [todos, setTodos] = useState([]);
 
+    const sortByDate = function (e) {
+        e.preventDefault();
+        const postList = todos;
+        let newPostList = postList.sort(
+            (a, b) => b.dateTimeSort - a.dateTimeSort
+        );
+        setTodos(() => Object.values(newPostList));
+    };
+
     return (
         <div>
-            <Mainmenu setTodos={setTodos} todos={todos} />
+            <Mainmenu
+                setTodos={setTodos}
+                todos={todos}
+                dateTimeSort={dateTimeSort}
+                sortByDate={sortByDate}
+            />
             <PopUp
                 title={title}
                 setTitle={setTitle}

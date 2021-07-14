@@ -27,8 +27,12 @@ function Task({
     const deleteTask = () => {
         setTodos(todos.filter((el) => el.id !== task.id));
     };
+
     return (
-        <li className="list-group-item d-flex w-100 mb-2" data-date="">
+        <li
+            className="list-group-item d-flex w-100 mb-2"
+            data-date={dateTimeSort}
+        >
             <div className={`w-100 mr-2 ${task.completed ? "completed" : ""}`}>
                 <div className="d-flex w-100 justify-content-between">
                     <h5 className="mb-1">{title}</h5>

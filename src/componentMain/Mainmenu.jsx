@@ -4,21 +4,16 @@ import ButtonsSort from "../components/ButtonsSort";
 import ButtonAddTask from "../components/ButtonAddTask";
 import TaskList from "../components/TaskList";
 
-function Mainmenu({ todos, setTodos }) {
-    // const sortTaskReverse = () => {
-    //     // console.log(todos.todos);
-    //     let postList = todos.todos;
-    //     let newPostList = postList.reverse();
-    //     console.log(newPostList);
-    //     setTodos(newPostList.sort((a, b) => a.dateTimeSort - b.dateTimeSort));
-    //     // console.log(sortedTodos);
-    // };
-
+function Mainmenu({ todos, setTodos, sortByDate }) {
     return (
         <div className="container-fluid wrapper">
             <nav className="navbar navbar-light bg-light">
                 <h1>MyToDoList</h1>
-                <ButtonsSort setTodos={setTodos} todos={todos} />
+                <ButtonsSort
+                    setTodos={setTodos}
+                    todos={todos}
+                    sortByDate={sortByDate}
+                />
                 <ButtonAddTask />
             </nav>
             <div className="row justify-content-center">
