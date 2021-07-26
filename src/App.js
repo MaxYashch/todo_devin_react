@@ -10,6 +10,10 @@ function App() {
     const [dateTimeSort, setDateTimeSort] = useState("");
     const [idPriority, setIdPriority] = useState("");
     const [todos, setTodos] = useState([]);
+    // const [edit, setEdit] = useState({
+    //     id: null,
+    //     value: "",
+    // });
 
     const sortByDate = function (e) {
         e.preventDefault();

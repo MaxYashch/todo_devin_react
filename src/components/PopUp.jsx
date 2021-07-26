@@ -15,15 +15,12 @@ function PopUp({
     setTodos,
 }) {
     function getTitleValue(e) {
-        // console.log(e.target.value);
         setTitle(e.target.value);
     }
     function getTextValue(e) {
-        // console.log(e.target.value);
         setText(e.target.value);
     }
     function getPriorityId(e) {
-        // console.log(e.target.value);
         setIdPriority(e.target.value);
     }
 
@@ -31,19 +28,17 @@ function PopUp({
         e.preventDefault();
         // set date & time
         let today = new Date();
-
+        let sec = today.getSeconds();
+        if (sec < 10) {
+            sec = "0" + sec;
+        }
         let date =
             today.getDate() +
             "-" +
             (today.getMonth() + 1) +
             "-" +
             today.getFullYear();
-        let time =
-            today.getHours() +
-            " : " +
-            today.getMinutes() +
-            " : " +
-            today.getSeconds();
+        let time = today.getHours() + " : " + today.getMinutes() + " : " + sec;
         let dateTime = `${time}    ${date}`;
         setDateTime(dateTime);
         let dateTimeSort = today.getTime();

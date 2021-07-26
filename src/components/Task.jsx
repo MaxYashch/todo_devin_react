@@ -1,5 +1,4 @@
 import { React } from "react";
-// import ButtonsStatus from "./ButtonsStatus";
 
 function Task({
     title,
@@ -12,6 +11,19 @@ function Task({
     setTodos,
 }) {
     const completeTask = () => {
+        setTodos(
+            todos.map((item) => {
+                if (item.id === task.id) {
+                    return {
+                        ...item,
+                        completed: !item.completed,
+                    };
+                }
+                return item;
+            })
+        );
+    };
+    const editTask = (e) => {
         setTodos(
             todos.map((item) => {
                 if (item.id === task.id) {
@@ -73,9 +85,12 @@ function Task({
                         >
                             Complete
                         </button>
-                        {/* <button className="btn btn-info w-100 my-2">
+                        <button
+                            className="btn btn-info w-100 my-2"
+                            onClick={editTask}
+                        >
                             Edit
-                        </button> */}
+                        </button>
                         <button
                             className="btn btn-danger w-100"
                             onClick={deleteTask}
