@@ -4,7 +4,21 @@ import ButtonsSort from "../components/ButtonsSort";
 import ButtonAddTask from "../components/ButtonAddTask";
 import TaskList from "../components/TaskList";
 
-function Mainmenu({ todos, setTodos, sortByDate }) {
+function Mainmenu({
+    todos,
+    setTodos,
+    sortByDate,
+    isEditing,
+    setIsEditing,
+    currentTodo,
+    setCurrentTodo,
+    handleEditInputChangeTitle,
+    handleEditInputChangeText,
+    handleEditClick,
+    handleEditFormSubmit,
+
+    handleInputChange,
+}) {
     return (
         <div className="container-fluid wrapper">
             <nav className="navbar navbar-light bg-light">
@@ -19,7 +33,20 @@ function Mainmenu({ todos, setTodos, sortByDate }) {
             <div className="row justify-content-center">
                 <div className="col-10">
                     <h3 className="my-2">ToDo</h3>
-                    <TaskList setTodos={setTodos} todos={todos} />
+                    <TaskList
+                        setTodos={setTodos}
+                        todos={todos}
+                        //    edit function
+                        isEditing={isEditing}
+                        setIsEditing={setIsEditing}
+                        currentTodo={currentTodo}
+                        setCurrentTodo={setCurrentTodo}
+                        handleEditInputChangeTitle={handleEditInputChangeTitle}
+                        handleEditInputChangeText={handleEditInputChangeText}
+                        handleEditClick={handleEditClick}
+                        handleEditFormSubmit={handleEditFormSubmit}
+                        handleInputChange={handleInputChange}
+                    />
 
                     <hr />
                     {/* <h3 className="my-2">Completed</h3>

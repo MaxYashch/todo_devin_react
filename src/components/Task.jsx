@@ -9,6 +9,11 @@ function Task({
     task,
     todos,
     setTodos,
+    isEditing,
+    setIsEditing,
+    currentTodo,
+    setCurrentTodo,
+    handleEditClick,
 }) {
     const completeTask = () => {
         setTodos(
@@ -23,19 +28,7 @@ function Task({
             })
         );
     };
-    const editTask = (e) => {
-        setTodos(
-            todos.map((item) => {
-                if (item.id === task.id) {
-                    return {
-                        ...item,
-                        completed: !item.completed,
-                    };
-                }
-                return item;
-            })
-        );
-    };
+
     const deleteTask = () => {
         setTodos(todos.filter((el) => el.id !== task.id));
     };
@@ -87,7 +80,7 @@ function Task({
                         </button>
                         <button
                             className="btn btn-info w-100 my-2"
-                            onClick={editTask}
+                            onClick={handleEditClick}
                         >
                             Edit
                         </button>

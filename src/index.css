@@ -214,3 +214,7 @@ code {
   transform: translateY(8rem) rotateZ(20deg);
   opacity: 0;
 }
+
+label {
+  margin-right: 15px;
+}
